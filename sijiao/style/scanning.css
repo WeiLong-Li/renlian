@@ -1,0 +1,71 @@
+@charset "UTF-8";
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: '微软雅黑';
+}
+.title {
+  width: 98%;
+  padding-left: 0.4rem;
+  height: 0.66666667rem;
+  margin-top: 0.26666667rem;
+  padding-left: 2%;
+}
+span {
+  font-size: 0.53333333rem;
+  color: black;
+  width: 3rem;
+  height: 100%;
+  display: inline-block;
+  float: left;
+  line-height: 100%;
+  margin-left: 0.13333333rem;
+  font-weight: 500;
+}
+.titleicon {
+  width: 0.13333333rem;
+  height: 80%;
+  background: #0F8EEF;
+  float: left;
+}
+.el-upload {
+  border: 0.01333333rem solid #ddd !important;
+  width: 2.66666667rem !important;
+  height: 2.66666667rem !important;
+}
+.avatar-uploader {
+  display: inline-block !important;
+  margin-left: 1.6rem;
+  margin-top: 0.4rem;
+}
+.avatar-uploader-icon {
+  font-size: 1.70666667rem !important;
+  color: #CCCCCC;
+}
+p {
+  display: inline-block;
+  font-size: 0.4rem;
+  margin-left: 1.6rem;
+  color: #999999;
+}
+.hr {
+  width: 100%;
+  height: 0.13333333rem;
+  background: #EEEEEE;
+  margin-top: 0.4rem;
+}
+.bt {
+  width: 100%;
+  height: 2.66666667rem;
+  text-align: center;
+  margin-top: 1.33333333rem;
+}
+.button {
+  width: 80% !important;
+  height: 1.06666667rem !important;
+  margin: 0 auto;
+  font-size: 0.46666667rem !important;
+  line-height: 200% !important;
+  background: #0F8EEF !important;
+  border-radius: 0.13333333rem !important;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>人脸识别</title>
+	<link rel="stylesheet" type="text/css" href="style/scanning.css">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="style/button.css">
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script>
+		var pixelRatio = 1 / window.devicePixelRatio;    //还原设备的真实分辨率；  
+		//devicePixelRatio设备的像素比   像素比：物理像素/逻辑像素；          
+		document.write('<meta name="viewport" content="width=device-width,initial-scale='+pixelRatio+',minimum-scale='+pixelRatio+',maximum-scale='+pixelRatio+'" />');
+
+		var html=document.getElementsByTagName('html')[0];   //获取每个型号的手的html元素
+		var pageWidth=html.getBoundingClientRect().width;   //获取每个型号的手的宽度
+		html.style.fontSize=pageWidth/10+"px";        //除10获取每个型号手机的根元素字体大小    
+		//rem是相对于根元素   动态的获取每个型号手机下面根元素的字体大小              
+	</script>
+</head>
+<body>
+	<div id="app">
+		<div class="title">
+			<div class="titleicon"></div>
+			<span >基本信息</span>
+		</div>
+		<el-upload
+		  class="avatar-uploader"
+		  action="https://jsonplaceholder.typicode.com/posts/"
+		  :show-file-list="false"
+		  :on-success="handleAvatarSuccess"
+		  :before-upload="beforeAvatarUpload">
+		  <img v-if="imageUrl" :src="imageUrl" class="avatar">
+		  <i v-else class="el-icon-upload avatar-uploader-icon"></i>
+		</el-upload>
+		<el-upload
+		  class="avatar-uploader"
+		  action="https://jsonplaceholder.typicode.com/posts/"
+		  :show-file-list="false"
+		  :on-success="handleAvatarSuccess"
+		  :before-upload="beforeAvatarUpload">
+		  <img v-if="imageUrl2" :src="imageUrl2" class="avatar">
+		  <i v-else class="el-icon-upload avatar-uploader-icon"></i>
+		</el-upload>
+		<p>(身份证正面照)</p>
+		<p>(身份证国徽照)</p>
+		<div class="hr"></div>
+		<div class="title">
+			<div class="titleicon"></div>
+			<span >活体采集</span>
+		</div>
+		<div class="last">
+					<div class="bt">
+						<a  class="button button-glow button-rounded button-raised button-primary" href="scanning.html">确认认证点击继续完善信息</a>
+					</div>
+				</div>
+	</div>
+	<script type="text/javascript">
+		var doit = new Vue({
+			el:'#app',
+			data: {
+				 imageUrl: '',
+				 imageUrl2: ''
+				},
+				 methods: {
+			      handleAvatarSuccess(res, file) {
+			        this.imageUrl = URL.createObjectURL(file.raw);
+			      },
+			      beforeAvatarUpload(file) {
+			        const isJPG = file.type === 'image/jpeg';
+			        const isLt2M = file.size / 1024 / 1024 < 2;
+
+			        if (!isJPG) {
+			          this.$message.error('上传头像图片只能是 JPG 格式!');
+			        }
+			        if (!isLt2M) {
+			          this.$message.error('上传头像图片大小不能超过 2MB!');
+			        }
+			        return isJPG && isLt2M;
+			      }
+			    }
+		})
+	</script>
+</body>
+<style type="text/css">
+	<style>
+  .avatar-uploader .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .avatar-uploader .el-upload:hover {
+    border-color: #409EFF;
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
+</style>
+
+</style>
+</html>
